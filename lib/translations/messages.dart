@@ -13,6 +13,15 @@ class Messages extends Translations {
       'date': 'Date',
       'hour': 'Hour',
       'repeat': 'Repeat',
+      'trash_title': 'Trash',
+      'settings_title': 'Settings',
+      'profile': 'Profile',
+      'profile_sub': 'Subtitle',
+      'delete_all': 'Delete all?',
+      'yes': 'Yes',
+      'no': 'No',
+      'move_to_trash_date': 'Moved to trash in: ',
+      'category': 'Category'
     },
     'pt_BR': {
       'title': 'Lembretes',
@@ -24,6 +33,15 @@ class Messages extends Translations {
       'date': 'Data',
       'hour': 'Hora',
       'repeat': 'Repetir',
+      'trash_title': 'Lixeira',
+      'settings_title': 'Configurações',
+      'profile': 'Perfil',
+      'profile_sub': 'Legenda',
+      'delete_all': 'Deletar tudo?',
+      'yes': 'Sim',
+      'not': 'Não',
+      'move_to_trash_date': 'Movido pra lixeira em: ',
+      'category': 'Categoria'
     }
   };
 
