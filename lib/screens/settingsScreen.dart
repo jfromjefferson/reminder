@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/widgets/customText.dart';
 import 'package:get/get.dart';
 
@@ -22,15 +23,24 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        ListTile(
-                          leading: Icon(LineIcons.user, size: 35),
-                          title: CustomText(text: 'profile'.tr, size: 18),
-                          subtitle: CustomText(text: 'profile_sub'.tr, size: 12),
+                        GestureDetector(
+                          onTap: (){},
+                          child: ListTile(
+                            leading: Icon(LineIcons.user, size: 35, color: primaryColor),
+                            title: CustomText(text: 'profile'.tr, size: 18),
+                            subtitle: CustomText(text: 'profile_sub'.tr, size: 12),
+                          ),
                         ),
-                        Divider(
-                          color: Colors.grey,
-                          height: 0,
-                        )
+                        Divider(color: Colors.grey),
+                        GestureDetector(
+                          onTap: (){},
+                          child: ListTile(
+                            leading: Icon(LineIcons.objectGroup, size: 35, color: primaryColor),
+                            title: CustomText(text: 'categories'.tr, size: 18),
+                            subtitle: CustomText(text: 'categories_sub'.tr, size: 12),
+                          ),
+                        ),
+                        Divider(color: Colors.grey)
                       ],
                     )
                   ],

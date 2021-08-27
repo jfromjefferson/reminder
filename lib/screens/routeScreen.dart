@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:remind_me_of/screens/mainScreen.dart';
 import 'package:remind_me_of/screens/settingsScreen.dart';
-import 'package:remind_me_of/screens/trashScreen.dart';
-import 'package:remind_me_of/utils/colors.dart';
+import 'package:remind_me_of/screens/newReminderScreen.dart';
 
 class RouteScreen extends StatefulWidget {
 
@@ -18,7 +17,7 @@ class _RouteScreenState extends State<RouteScreen> {
   List<Widget> pageList = [
     SettingsScreen(),
     MainScreen(),
-    TrashScreen(),
+    NewReminderScreen(),
   ];
 
   @override
@@ -33,8 +32,8 @@ class _RouteScreenState extends State<RouteScreen> {
         color: Colors.black12,
         items: [
           Icon(LineIcons.userCog, color: Colors.black),
+          Icon(LineIcons.alternateList, color: Colors.black),
           Icon(LineIcons.plus, color: Colors.black),
-          Icon(LineIcons.trash, color: Colors.black),
         ],
         onTap: (int index){
           setState(() {
