@@ -17,3 +17,15 @@ Future<List<Category>> getCategoryList() async {
 
   return categoryList;
 }
+
+Future<void> updateCategory({required Category category, required int index}) async {
+  var box = await Hive.openBox<Category>('category');
+
+  await box.putAt(index, category);
+}
+
+Future<void> deleteCategory({required int index}) async {
+  var box = await Hive.openBox<Category>('category');
+
+  await box.deleteAt(index);
+}

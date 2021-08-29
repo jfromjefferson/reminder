@@ -21,7 +21,17 @@ class Messages extends Translations {
       'yes': 'Yes',
       'no': 'No',
       'move_to_trash_date': 'Moved to trash in: ',
-      'category': 'Category'
+      'categories': 'Category',
+      'clear': 'Clear',
+      'back': 'Back',
+      'new_category': 'New category',
+      'category': 'Category',
+      'category_success_title': 'Success!',
+      'category_success_message': 'Category created',
+      'category_error_title': 'Error!',
+      'category_error_message': 'Error while create category',
+      'category_update': 'Category update',
+      'update': 'Update',
     },
     'pt_BR': {
       'title': 'Lembretes',
@@ -41,7 +51,17 @@ class Messages extends Translations {
       'yes': 'Sim',
       'not': 'Não',
       'move_to_trash_date': 'Movido pra lixeira em: ',
-      'category': 'Categoria'
+      'categories': 'Categorias',
+      'clear': 'Limpar',
+      'back': 'Voltar',
+      'new_category': 'Nova categoria',
+      'category': 'Categoria',
+      'category_success_title': 'Sucesso!',
+      'category_success_message': 'Categoria criada',
+      'category_error_title': 'Erro!',
+      'category_error_message': 'Erro ao criar categoria',
+      'category_update': 'Atualizar categoria',
+      'update': 'Atualizar',
     }
   };
 

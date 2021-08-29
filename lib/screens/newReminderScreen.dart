@@ -77,7 +77,7 @@ class NewReminderScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 20),
                   Row(
                     children: [
                       Expanded(
@@ -107,7 +107,7 @@ class NewReminderScreen extends StatelessWidget {
                       SizedBox(width: 20),
                       Column(
                         children: [
-                          SizedBox(height: 20),
+                          CustomText(text: 'clear'.tr),
                           IconButton(
                             onPressed: (){},
                             icon: Icon(LineIcons.alternateUndo, size: 35, color: primaryColor),
