@@ -9,7 +9,8 @@ class Messages extends Translations {
       'reminder_input_title': 'Title',
       'reminder_input_content': 'Content',
       'create': 'Create',
-      'date_format': 'yyyy-MM-dd',
+      'date_format': 'yyyy-MM-dd HH:mm',
+      'date_format_dm': 'MM-dd HH:mm',
       'date': 'Date',
       'date_hour': 'Date/hour',
       'hour': 'Hour',
@@ -32,6 +33,11 @@ class Messages extends Translations {
       'category_error_message': 'Error while create category',
       'category_update': 'Category update',
       'update': 'Update',
+      'today': 'Today',
+      'show_colorpicker': 'Select color',
+      'everyday': 'Every day',
+      'every_week': 'Every week',
+      'every_month': 'Every month',
     },
     'pt_BR': {
       'title': 'Lembretes',
@@ -39,7 +45,8 @@ class Messages extends Translations {
       'reminder_input_title': 'Título',
       'reminder_input_content': 'Conteúdo',
       'create': 'Criar',
-      'date_format': 'dd/MM/yyyy',
+      'date_format': 'dd/MM/yyyy HH:mm',
+      'date_format_dm': 'dd/MM HH:mm',
       'date': 'Data',
       'date_hour': 'Data/hora',
       'hour': 'Hora',
@@ -62,6 +69,11 @@ class Messages extends Translations {
       'category_error_message': 'Erro ao criar categoria',
       'category_update': 'Atualizar categoria',
       'update': 'Atualizar',
+      'today': 'Hoje',
+      'show_colorpicker': 'Selecionar cor',
+      'everyday': 'Todo dia',
+      'every_week': 'Toda semana',
+      'every_month': 'Todo mês',
     }
   };
 

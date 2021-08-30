@@ -18,96 +18,18 @@ class MainScreen extends StatelessWidget {
               CustomText(text: 'title'.tr, size: 30, weight: FontWeight.bold),
               SizedBox(height: 20),
               Expanded(
-                child: ListView(
-                  children: [
-                    CustomText(text: 'Category'),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: Color(0xff7ECCFF),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Column(
-                                children: [
-                                  CustomText(
-                                    text: 'Reminder title',
-                                    weight: FontWeight.bold,
-                                  ),
-                                  SizedBox(height: 5),
-                                  CustomText(text: 'Text exemple...'),
-                                  SizedBox(height: 5),
-                                  CustomText(
-                                    text: 'Today, 3:30 PM',
-                                    weight: FontWeight.bold,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    CustomText(text: 'General'),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Color(0xff7ECCFF),
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: Column(
-                                children: [
-                                  CustomText(
-                                      text: 'Reminder title',
-                                      weight: FontWeight.bold),
-                                  SizedBox(height: 5),
-                                  CustomText(text: 'Text exemple...'),
-                                  SizedBox(height: 5),
-                                  CustomText(
-                                      text: 'Today, 3:30 PM',
-                                      weight: FontWeight.bold),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 5),
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Color(0xff7ECCFF),
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: Column(
-                                children: [
-                                  CustomText(
-                                      text: 'Reminder title',
-                                      weight: FontWeight.bold),
-                                  SizedBox(height: 5),
-                                  CustomText(text: 'Text exemple...'),
-                                  SizedBox(height: 5),
-                                  CustomText(
-                                      text: 'Today, 3:30 PM',
-                                      weight: FontWeight.bold),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: ListView(
+                    children: [
+                      Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        alignment: WrapAlignment.spaceBetween,
+                        children: appController.reminderList,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

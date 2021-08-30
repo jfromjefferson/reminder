@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:remind_me_of/database/models/category/category.dart';
 
 part 'reminder.g.dart';
 
@@ -9,23 +9,27 @@ class Reminder extends HiveObject {
   late String title;
 
   @HiveField(1)
-  late String content;
+  late String ?content;
 
   @HiveField(2)
   late DateTime reminderDate;
 
   @HiveField(3)
-  late bool repeat;
+  late String ?repeat;
 
   @HiveField(4)
-  late Category ?category;
+  late String ?category;
+
+  @HiveField(5)
+  late int color;
 
   Reminder({
     this.category,
-    required this.content,
+    this.content,
     required this.reminderDate,
-    required this.repeat,
-    required this.title
+    this.repeat,
+    required this.title,
+    required this.color
   });
 
   Map<String, dynamic> toMap() {
@@ -35,6 +39,7 @@ class Reminder extends HiveObject {
       'reminderDate': reminderDate,
       'repeat': repeat,
       'category': category,
+      'color': color,
     };
 
     return map;
@@ -46,6 +51,7 @@ class Reminder extends HiveObject {
     reminderDate = map['reminderDate'];
     repeat = map['repeat'];
     category = map['category'];
+    color = map['color'];
   }
 
 }

@@ -4,25 +4,71 @@ import 'package:remind_me_of/database/models/category/category.dart';
 import 'package:remind_me_of/database/models/reminder/reminder.dart';
 import 'package:remind_me_of/database/queries/category/category.dart';
 import 'package:remind_me_of/database/queries/reminder/reminder.dart';
+import 'package:remind_me_of/screens/newReminderScreen.dart';
+import 'package:remind_me_of/screens/routeScreen.dart';
+import 'package:remind_me_of/utils/colors.dart';
+import 'package:remind_me_of/utils/functions.dart';
+import 'package:remind_me_of/widgets/customText.dart';
 
 class AppController extends GetxController {
-  var repeatReminder = false.obs;
   var categoryList = [].obs;
+  List<Map<String, dynamic>> categoryDropList = [];
+  List<Widget> reminderList = [];
+
   var categoryNameToEdit = ''.obs;
+  String reminderTitle = '';
+  String reminderContent = '';
+
+  var showColorPicker = false.obs;
+  int selectedColor = primaryColor.value;
+
+  late Reminder reminderToEdit;
 
   @override
   void onInit() async {
-    categoryList.value = await getCategoryList();
+    List<Category> categoryResponse = await getCategoryList();
+    List<Reminder> reminderResponse = await getReminderList();
+    categoryList.value = categoryResponse;
+    reminderList = createReminderList(reminderList: reminderResponse);
+
+    categoryDropList = await setCategoryDropdown();
 
     super.onInit();
   }
 
-  Future<void> newReminder({required Reminder reminder}) async {
-    await createReminder(reminder: reminder);
+  void toggleColorPicker({required bool value}){
+    showColorPicker.value = value;
   }
 
-  void setRepeatReminder({required bool value}) {
-    repeatReminder.value = value;
+  Future<void> newReminder({required String title, String ?content, required String dueDate, String ?category, String ?repeat, required int color}) async {
+    if(title.isNotEmpty && dueDate.isNotEmpty){
+      Reminder reminder = Reminder(
+        title: title,
+        content: content,
+        reminderDate: DateTime.parse(dueDate),
+        category: category,
+        repeat: repeat,
+        color: color
+      );
+
+      await createReminder(reminder: reminder);
+      reminderList = createReminderList(reminderList: await getReminderList());
+      Get.snackbar(
+          'reminder_success_title'.tr,
+          'reminder_success_message'.tr,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          margin: EdgeInsets.only(top: 10, left: 5, right: 5)
+      );
+    }else{
+      Get.snackbar(
+          'reminder_error_title'.tr,
+          'reminder_error_message'.tr,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          margin: EdgeInsets.only(top: 10, left: 5, right: 5)
+      );
+    }
   }
 
   Future<void> categoryConfig({required String categoryName}) async {
@@ -31,6 +77,7 @@ class AppController extends GetxController {
 
       await createCategory(category: category);
       categoryList.value = await getCategoryList();
+      categoryDropList = await setCategoryDropdown();
       update();
       Get.back();
     }else{
@@ -47,6 +94,7 @@ class AppController extends GetxController {
   Future<void> delCategory({required int index}) async {
     await deleteCategory(index: index);
     categoryList.value = await getCategoryList();
+    categoryDropList = await setCategoryDropdown();
     update();
   }
 
@@ -55,6 +103,7 @@ class AppController extends GetxController {
       Category category = Category(name: categoryName);
       await updateCategory(category: category, index: index);
       categoryList.value = await getCategoryList();
+      categoryDropList = await setCategoryDropdown();
       update();
       Get.back();
     }else{
@@ -66,7 +115,78 @@ class AppController extends GetxController {
           margin: EdgeInsets.only(top: 10, left: 5, right: 5)
       );
     }
+  }
 
+  void clearField({required TextEditingController controller}){
+    controller..text = '';
+    Get.focusScope!.unfocus();
+    update();
+  }
+
+  Future<List<Map<String, dynamic>>> setCategoryDropdown() async {
+    List<Category> response = await getCategoryList();
+    List<Map<String, dynamic>> list = [];
+
+    response.forEach((element) {
+      list.add({
+        'value': element.name,
+        'label': element.name
+      });
+    });
+
+    return list;
+  }
+
+  List<Widget> createReminderList({required List<Reminder> reminderList}){
+    List<Widget> widgetList = [];
+
+    reminderList.forEach((reminder) {
+      Color textColor = Color(reminder.color).computeLuminance() > 0.5 ? Colors.black : Colors.white;
+
+      widgetList.add(
+          GestureDetector(
+            onTap: (){
+              Get.to(() => NewReminderScreen(reminder: reminder), transition: Transition.cupertino);
+            },
+            child: Container(
+              width: Get.mediaQuery.size.width/2.2,
+              height: Get.mediaQuery.size.width/2.5,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Color(reminder.color),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    text: reminder.title,
+                    weight: FontWeight.bold,
+                    color: textColor,
+                  ),
+                  SizedBox(height: 5),
+                  Flexible(child: CustomText(text: reminder.content ?? '', color: textColor)),
+                  SizedBox(height: 5),
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      borderRadius: BorderRadius.circular(5)
+                    ),
+                    child: CustomText(
+                      text: formatDate(date: reminder.reminderDate, repeat: reminder.repeat),
+                      weight: FontWeight.bold,
+                      color: textColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+      );
+    });
+
+    return widgetList;
   }
 
 }
