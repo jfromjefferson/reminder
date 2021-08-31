@@ -20,15 +20,24 @@ class MainScreen extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: ListView(
-                    children: [
-                      Wrap(
-                        spacing: 10,
-                        runSpacing: 10,
-                        alignment: WrapAlignment.spaceBetween,
-                        children: appController.reminderList,
-                      )
-                    ],
+                  child: FutureBuilder(
+                    future: appController.createReminderList(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot){
+                      if(snapshot.hasData){
+                        return ListView(
+                          children: [
+                            Wrap(
+                              spacing: 10,
+                              runSpacing: 10,
+                              alignment: WrapAlignment.spaceBetween,
+                              children: snapshot.data,
+                            )
+                          ],
+                        );
+                      }else{
+                        return Center(child: CircularProgressIndicator());
+                      }
+                    },
                   ),
                 ),
               ),

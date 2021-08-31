@@ -13,7 +13,6 @@ import 'package:remind_me_of/widgets/customText.dart';
 class AppController extends GetxController {
   var categoryList = [].obs;
   List<Map<String, dynamic>> categoryDropList = [];
-  List<Widget> reminderList = [];
 
   var categoryNameToEdit = ''.obs;
   String reminderTitle = '';
@@ -27,9 +26,7 @@ class AppController extends GetxController {
   @override
   void onInit() async {
     List<Category> categoryResponse = await getCategoryList();
-    List<Reminder> reminderResponse = await getReminderList();
     categoryList.value = categoryResponse;
-    reminderList = createReminderList(reminderList: reminderResponse);
 
     categoryDropList = await setCategoryDropdown();
 
@@ -52,7 +49,6 @@ class AppController extends GetxController {
       );
 
       await createReminder(reminder: reminder);
-      reminderList = createReminderList(reminderList: await getReminderList());
       Get.snackbar(
           'reminder_success_title'.tr,
           'reminder_success_message'.tr,
@@ -137,10 +133,12 @@ class AppController extends GetxController {
     return list;
   }
 
-  List<Widget> createReminderList({required List<Reminder> reminderList}){
+  Future<List<Widget>> createReminderList() async {
     List<Widget> widgetList = [];
 
-    reminderList.forEach((reminder) {
+    List<Reminder> reminderResponse = await getReminderList();
+
+    reminderResponse.forEach((reminder) {
       Color textColor = Color(reminder.color).computeLuminance() > 0.5 ? Colors.black : Colors.white;
 
       widgetList.add(
@@ -151,32 +149,37 @@ class AppController extends GetxController {
             child: Container(
               width: Get.mediaQuery.size.width/2.2,
               height: Get.mediaQuery.size.width/2.5,
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               decoration: BoxDecoration(
                 color: Color(reminder.color),
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   CustomText(
                     text: reminder.title,
                     weight: FontWeight.bold,
                     color: textColor,
+                    align: TextAlign.center,
                   ),
                   SizedBox(height: 5),
-                  Flexible(child: CustomText(text: reminder.content ?? '', color: textColor)),
+                  Flexible(child: CustomText(text: reminder.content ?? '', color: textColor, align: TextAlign.center,
+                  )),
                   SizedBox(height: 5),
                   Container(
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       color: Colors.black12,
-                      borderRadius: BorderRadius.circular(5)
+                      borderRadius: BorderRadius.circular(3)
                     ),
                     child: CustomText(
                       text: formatDate(date: reminder.reminderDate, repeat: reminder.repeat),
                       weight: FontWeight.bold,
                       color: textColor,
+                      size: 13,
+                      align: TextAlign.center,
                     ),
                   ),
                 ],

@@ -1,5 +1,6 @@
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:remind_me_of/controllers/appController.dart';
 import 'package:remind_me_of/database/models/reminder/reminder.dart';
@@ -48,9 +49,7 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
     return SafeArea(
       top: this.widget.reminder == null ? true : false,
       child: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
-        },
+        onTap: () {FocusScope.of(context).unfocus();},
         child: Scaffold(
           appBar: this.widget.reminder == null
               ? null
@@ -64,12 +63,11 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       CustomText(
-                        text: 'new_reminder_title'.tr,
+                        text: widget.reminder == null ? 'new_reminder_title'.tr : 'edit_reminder_title'.tr,
                         size: 30,
                         weight: FontWeight.bold,
                       ),
                       SizedBox(height: 20),
-                      SizedBox(height: 15),
                       CustomTextField(
                         controller: titleController,
                         onChanged: (String value) {
@@ -77,8 +75,11 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                         },
                         hintText: 'reminder_input_title'.tr,
                         textColor: Colors.black,
+                        filled: false,
+                        size: 23,
+                        weight: FontWeight.bold,
                       ),
-                      SizedBox(height: 15),
+                      SizedBox(height: 5),
                       CustomTextField(
                         controller: contentController,
                         onChanged: (String value) {
@@ -86,37 +87,43 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                         },
                         hintText: 'reminder_input_content'.tr,
                         textColor: Colors.black,
-                        maxLines: 3,
+                        maxLines: 5,
+                        filled: false,
                       ),
-                      SizedBox(height: 15),
-                      Obx(() => Column(
-                        children: [
-                          Column(
-                            children: [
-                              CustomText(text: 'show_colorpicker'.tr),
-                              Switch(
-                                onChanged: (bool value){
-                                  appController.toggleColorPicker(value: value);
-                                },
-                                value: appController.showColorPicker.value,
-                              )
-                            ],
-                          ),
-                          appController.showColorPicker.value ?
-                          ColorPicker(
-                            onColorChanged: (Color color){
-                              appController.selectedColor = color.value;
-                            },
-                          )
-                              : SizedBox(),
-                        ],
-                      )),
-                      SizedBox(height: 15),
-                      Row(
-                        children: [
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: DateTimePicker(
+                      Divider(color: Colors.grey),
+                      CustomText(text: 'show_colorpicker'.tr, size: 18),
+                      SizedBox(height: 10),
+                      ColorPicker(
+                        color: Color(appController.selectedColor),
+                        padding: EdgeInsets.zero,
+                        enableShadesSelection: false,
+                        pickersEnabled: {ColorPickerType.accent: false},
+                        onColorChanged: (Color color){
+                          appController.selectedColor = color.value;
+                        },
+                      )
+                    ],
+                  );
+                },
+              ),
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: (){
+              Get.dialog(
+                GestureDetector(
+                  onTap: (){
+                    Get.focusScope!.unfocus();
+                  },
+                  child: AlertDialog(
+                      backgroundColor: Colors.white,
+                      title: CustomText(text: 'define_time'.tr),
+                      content: Container(
+                        height: 230,
+                        child: Column(
+                          children: [
+                            DateTimePicker(
+                              icon: Icon(LineIcons.calendar, size: 30, color: primaryColor),
                               controller: dueDateController,
                               type: DateTimePickerType.dateTime,
                               initialDate: widget.reminder != null
@@ -130,27 +137,9 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                               onChanged: (String val) {},
 
                             ),
-                          ),
-                          SizedBox(width: 20),
-                          Column(
-                            children: [
-                              SizedBox(height: 10),
-                              IconButton(
-                                onPressed: (){
-                                  appController.clearField(controller: dueDateController);
-                                },
-                                icon: Icon(LineIcons.timesCircle, size: 35, color: primaryColor),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Row(
-                        children: [
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: SelectFormField(
+                            SizedBox(height: 10),
+                            SelectFormField(
+                              icon: Icon(LineIcons.list, size: 30, color: primaryColor),
                               controller: categoryController,
                               type: SelectFormFieldType.dropdown,
                               // or can be dialog
@@ -159,98 +148,75 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                               onChanged: (val) {},
                               onSaved: (val) => {},
                             ),
-                          ),
-                          SizedBox(width: 20),
-                          Column(
-                            children: [
-                              SizedBox(height: 10),
-                              IconButton(
-                                onPressed: (){
-                                  appController.clearField(controller: categoryController);
-                                },
-                                icon: Icon(LineIcons.timesCircle, size: 35, color: primaryColor),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Row(
-                        children: [
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: SelectFormField(
+                            SizedBox(height: 10),
+                            SelectFormField(
                               controller: repeatController,
+                              icon: Icon(LineIcons.syncIcon, size: 30, color: primaryColor),
                               type: SelectFormFieldType.dropdown,
                               labelText: 'repeat'.tr,
                               items: [
-                                {
-                                  'value': 'once_a_day',
-                                  'label': 'Once a day',
-                                },
-                                {
-                                  'value': 'once_a_week',
-                                  'label': 'Once a week',
-                                },
-                                {
-                                  'value': 'once_a_month',
-                                  'label': 'Once a month',
-                                },
+                                {'value': 'once_a_day', 'label': 'once_a_day'.tr},
+                                {'value': 'once_a_week', 'label': 'once_a_week'.tr},
+                                {'value': 'once_a_month', 'label': 'once_a_month'.tr},
                               ],
                               onChanged: (val) => {},
                               onSaved: (val) => {},
                             ),
-                          ),
-                          SizedBox(width: 20),
-                          Column(
-                            children: [
-                              SizedBox(height: 10),
-                              IconButton(
-                                onPressed: (){
-                                  appController.clearField(controller: repeatController);
-                                },
-                                icon: Icon(LineIcons.timesCircle, size: 35, color: primaryColor),
-                              ),
-                            ],
-                          )
-                        ],
+                          ],
+                        ),
                       ),
-                      SizedBox(height: 50),
-                      CustomButton(
-                        onPressed: () {
-                          String title = appController.reminderTitle;
-                          String content = appController.reminderContent;
-                          String dueDate = dueDateController.text;
-                          String category = categoryController.text;
-                          String repeat = repeatController.text;
+                      actions: [
+                        CustomButton(
+                          onPressed: (){
+                            String title = appController.reminderTitle;
+                            String content = appController.reminderContent;
+                            String dueDate = dueDateController.text;
+                            String category = categoryController.text;
+                            String repeat = repeatController.text;
 
-                          appController.newReminder(
-                            title: title,
-                            dueDate: dueDate,
-                            repeat: repeat,
-                            category: category,
-                            content: content,
-                            color: appController.selectedColor
-                          );
+                            appController.newReminder(
+                                title: title,
+                                dueDate: dueDate,
+                                repeat: repeat,
+                                category: category,
+                                content: content,
+                                color: appController.selectedColor
+                            );
 
-                          appController.reminderTitle = '';
-                          appController.reminderContent = '';
-                          appController.clearField(controller: titleController);
-                          appController.clearField(controller: contentController);
-                          appController.clearField(controller: dueDateController);
-                          appController.clearField(controller: categoryController);
-                          appController.clearField(controller: repeatController);
-                          appController.showColorPicker.value = false;
-                          appController.selectedColor = primaryColor.value;
-                        },
-                        text: 'create'.tr,
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            ),
+                            appController.reminderTitle = '';
+                            appController.reminderContent = '';
+                            appController.clearField(controller: titleController);
+                            appController.clearField(controller: contentController);
+                            appController.clearField(controller: dueDateController);
+                            appController.clearField(controller: categoryController);
+                            appController.clearField(controller: repeatController);
+                            appController.showColorPicker.value = false;
+                            appController.selectedColor = primaryColor.value;
+
+                            Get.back();
+                          },
+                          text: 'yes'.tr,
+                          padding: EdgeInsets.all(0),
+                          buttonColor: primaryColor,
+                          textSize: 15,
+                        ),
+                        CustomButton(
+                          onPressed: (){
+                            Get.back();
+                          },
+                          text: 'back'.tr,
+                          padding: EdgeInsets.all(0),
+                          buttonColor: Colors.grey,
+                          textSize: 15,
+                        ),
+                      ],
+                    ),
+                ),
+                barrierDismissible: false,
+              );
+            },
+            child: Icon(widget.reminder == null ? LineIcons.check : LineIcons.alternatePencil),
+            backgroundColor: primaryColor,
           ),
         ),
       ),
