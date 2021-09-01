@@ -39,7 +39,10 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
       dueDateController..text = widget.reminder!.reminderDate.toString();
       categoryController..text = widget.reminder!.category!;
       repeatController..text = widget.reminder!.repeat!;
+
       appController.selectedColor = widget.reminder!.color;
+      appController.reminderTitle = widget.reminder!.title;
+      appController.reminderContent = widget.reminder!.content!;
     }
     super.initState();
   }
@@ -122,45 +125,51 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                         height: 230,
                         child: Column(
                           children: [
-                            DateTimePicker(
-                              icon: Icon(LineIcons.calendar, size: 30, color: primaryColor),
-                              controller: dueDateController,
-                              type: DateTimePickerType.dateTime,
-                              initialDate: widget.reminder != null
-                                  ? DateTime.parse(dueDateController.text)
-                                  : DateTime.now(),
-                              dateMask: 'date_format'.tr,
-                              firstDate: DateTime.now(),
-                              lastDate: DateTime(2100),
-                              dateLabelText: 'date_hour'.tr,
-                              timeLabelText: 'hour'.tr,
-                              onChanged: (String val) {},
+                            Flexible(
+                              child: DateTimePicker(
+                                icon: Icon(LineIcons.calendar, size: 30, color: primaryColor),
+                                controller: dueDateController,
+                                type: DateTimePickerType.dateTime,
+                                initialDate: widget.reminder != null
+                                    ? DateTime.parse(dueDateController.text)
+                                    : DateTime.now(),
+                                dateMask: 'date_format'.tr,
+                                firstDate: DateTime.now(),
+                                lastDate: DateTime(2100),
+                                dateLabelText: 'date_hour'.tr,
+                                timeLabelText: 'hour'.tr,
+                                onChanged: (String val) {},
 
+                              ),
                             ),
                             SizedBox(height: 10),
-                            SelectFormField(
-                              icon: Icon(LineIcons.list, size: 30, color: primaryColor),
-                              controller: categoryController,
-                              type: SelectFormFieldType.dropdown,
-                              // or can be dialog
-                              labelText: 'category'.tr,
-                              items: appController.categoryDropList,
-                              onChanged: (val) {},
-                              onSaved: (val) => {},
+                            Flexible(
+                              child: SelectFormField(
+                                icon: Icon(LineIcons.list, size: 30, color: primaryColor),
+                                controller: categoryController,
+                                type: SelectFormFieldType.dropdown,
+                                // or can be dialog
+                                labelText: 'category'.tr,
+                                items: appController.categoryDropList,
+                                onChanged: (val) {},
+                                onSaved: (val) => {},
+                              ),
                             ),
                             SizedBox(height: 10),
-                            SelectFormField(
-                              controller: repeatController,
-                              icon: Icon(LineIcons.syncIcon, size: 30, color: primaryColor),
-                              type: SelectFormFieldType.dropdown,
-                              labelText: 'repeat'.tr,
-                              items: [
-                                {'value': 'once_a_day', 'label': 'once_a_day'.tr},
-                                {'value': 'once_a_week', 'label': 'once_a_week'.tr},
-                                {'value': 'once_a_month', 'label': 'once_a_month'.tr},
-                              ],
-                              onChanged: (val) => {},
-                              onSaved: (val) => {},
+                            Flexible(
+                              child: SelectFormField(
+                                controller: repeatController,
+                                icon: Icon(LineIcons.syncIcon, size: 30, color: primaryColor),
+                                type: SelectFormFieldType.dropdown,
+                                labelText: 'repeat'.tr,
+                                items: [
+                                  {'value': 'once_a_day', 'label': 'once_a_day'.tr},
+                                  {'value': 'once_a_week', 'label': 'once_a_week'.tr},
+                                  {'value': 'once_a_month', 'label': 'once_a_month'.tr},
+                                ],
+                                onChanged: (val) => {},
+                                onSaved: (val) => {},
+                              ),
                             ),
                           ],
                         ),
@@ -174,14 +183,26 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                             String category = categoryController.text;
                             String repeat = repeatController.text;
 
-                            appController.newReminder(
+                            if(widget.reminder == null){
+                              appController.newReminder(
+                                  title: title,
+                                  dueDate: dueDate,
+                                  repeat: repeat,
+                                  category: category,
+                                  content: content,
+                                  color: appController.selectedColor
+                              );
+                            }else{
+                              appController.updReminder(
                                 title: title,
                                 dueDate: dueDate,
                                 repeat: repeat,
                                 category: category,
                                 content: content,
-                                color: appController.selectedColor
-                            );
+                                color: appController.selectedColor,
+                                key: widget.reminder!.key
+                              );
+                            }
 
                             appController.reminderTitle = '';
                             appController.reminderContent = '';
@@ -190,10 +211,7 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                             appController.clearField(controller: dueDateController);
                             appController.clearField(controller: categoryController);
                             appController.clearField(controller: repeatController);
-                            appController.showColorPicker.value = false;
                             appController.selectedColor = primaryColor.value;
-
-                            Get.back();
                           },
                           text: 'yes'.tr,
                           padding: EdgeInsets.all(0),

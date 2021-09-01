@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
+import 'package:remind_me_of/utils/colors.dart';
 
 String formatDate({required DateTime date, String ?repeat}){
   DateTime today = DateTime.now();
@@ -18,4 +20,19 @@ String formatDate({required DateTime date, String ?repeat}){
   return dateFormatted;
   }
 
+}
+
+void alert({required String title, required String message}){
+  bool hasError = false;
+  if(title.contains('error')){
+    hasError = true;
+  }
+
+  Get.snackbar(
+      '$title'.tr,
+      '$message'.tr,
+      backgroundColor: hasError ? Colors.red : Color(0xff58ad4b),
+      colorText: Colors.white,
+      margin: EdgeInsets.only(top: 10, left: 5, right: 5)
+  );
 }

@@ -5,9 +5,9 @@ import 'package:remind_me_of/database/models/reminder/reminder.dart';
 import 'package:remind_me_of/database/queries/category/category.dart';
 import 'package:remind_me_of/database/queries/reminder/reminder.dart';
 import 'package:remind_me_of/screens/newReminderScreen.dart';
-import 'package:remind_me_of/screens/routeScreen.dart';
 import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/utils/functions.dart';
+import 'package:remind_me_of/widgets/customButton.dart';
 import 'package:remind_me_of/widgets/customText.dart';
 
 class AppController extends GetxController {
@@ -18,7 +18,6 @@ class AppController extends GetxController {
   String reminderTitle = '';
   String reminderContent = '';
 
-  var showColorPicker = false.obs;
   int selectedColor = primaryColor.value;
 
   late Reminder reminderToEdit;
@@ -33,10 +32,6 @@ class AppController extends GetxController {
     super.onInit();
   }
 
-  void toggleColorPicker({required bool value}){
-    showColorPicker.value = value;
-  }
-
   Future<void> newReminder({required String title, String ?content, required String dueDate, String ?category, String ?repeat, required int color}) async {
     if(title.isNotEmpty && dueDate.isNotEmpty){
       Reminder reminder = Reminder(
@@ -49,21 +44,41 @@ class AppController extends GetxController {
       );
 
       await createReminder(reminder: reminder);
-      Get.snackbar(
-          'reminder_success_title'.tr,
-          'reminder_success_message'.tr,
-          backgroundColor: Colors.green,
-          colorText: Colors.white,
-          margin: EdgeInsets.only(top: 10, left: 5, right: 5)
-      );
+      Get.back();
+      alert(title: 'reminder_success_title', message: 'reminder_success_message');
     }else{
-      Get.snackbar(
-          'reminder_error_title'.tr,
-          'reminder_error_message'.tr,
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
-          margin: EdgeInsets.only(top: 10, left: 5, right: 5)
+      Get.back();
+      alert(title: 'reminder_error_title', message: 'reminder_error_message');
+    }
+  }
+
+  Future<void> delReminder({required int key}) async {
+    await deleteReminder(key: key);
+
+    alert(title: 'delete_reminder_success_title', message: 'delete_reminder_success_message');
+
+    update();
+  }
+
+  Future<void> updReminder({required String title, String ?content, required String dueDate, String ?category, String ?repeat, required int color, required int key}) async {
+    if(title.isNotEmpty && dueDate.isNotEmpty) {
+      Reminder reminder = Reminder(
+          title: title,
+          content: content,
+          reminderDate: DateTime.parse(dueDate),
+          category: category,
+          repeat: repeat,
+          color: color
       );
+
+      await updateReminder(reminder: reminder, key: key);
+
+      alert(title: 'update_reminder_success_title', message: 'update_reminder_success_message');
+
+      update();
+    }else{
+
+      alert(title: 'reminder_error_title', message: 'reminder_error_message');
     }
   }
 
@@ -77,13 +92,8 @@ class AppController extends GetxController {
       update();
       Get.back();
     }else{
-      Get.snackbar(
-          'category_error_title'.tr,
-          'category_error_message'.tr,
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
-          margin: EdgeInsets.only(top: 10, left: 5, right: 5)
-      );
+
+      alert(title: 'category_error_title', message: 'category_error_message');
     }
   }
 
@@ -103,13 +113,8 @@ class AppController extends GetxController {
       update();
       Get.back();
     }else{
-      Get.snackbar(
-          'category_error_title'.tr,
-          'category_error_message'.tr,
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
-          margin: EdgeInsets.only(top: 10, left: 5, right: 5)
-      );
+
+      alert(title: 'category_error_title', message: 'category_error_message');
     }
   }
 
@@ -143,8 +148,71 @@ class AppController extends GetxController {
 
       widgetList.add(
           GestureDetector(
-            onTap: (){
+            onLongPress: (){
               Get.to(() => NewReminderScreen(reminder: reminder), transition: Transition.cupertino);
+            },
+            onTap: (){
+              Get.bottomSheet(
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        ),
+                        color: Colors.white
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          CustomText(
+                              text: reminder.title,
+                              size: 22,
+                              weight: FontWeight.bold,
+                              align: TextAlign.center
+                          ),
+                          SizedBox(height: 15),
+                          CustomText(text: reminder.content ?? '', size: 19),
+                          SizedBox(height: 10),
+                          CustomText(
+                            text: formatDate(date: reminder.reminderDate,
+                            repeat: reminder.repeat),
+                            size: 19
+                          ),
+                          SizedBox(height: 30),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CustomButton(
+                                  onPressed: (){
+                                    Get.back();
+                                    Get.to(() => NewReminderScreen(reminder: reminder), transition: Transition.cupertino);
+                                  },
+                                  text: 'edit'.tr,
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: CustomButton(
+                                  onPressed: () async {
+                                    Get.back();
+                                    await delReminder(key: reminder.key);
+                                  },
+                                  text: 'delete'.tr,
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  buttonColor: Colors.red,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  isScrollControlled: true
+              );
             },
             child: Container(
               width: Get.mediaQuery.size.width/2.2,

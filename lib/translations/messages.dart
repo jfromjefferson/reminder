@@ -47,6 +47,13 @@ class Messages extends Translations {
       'reminder_success_message': 'Reminder created',
       'reminder_error_title': 'Error',
       'reminder_error_message': 'Error creating reminder',
+      'edit': 'Edit',
+      'delete': 'Delete',
+      'delete_reminder_success_title': 'Done!',
+      'delete_reminder_success_message': 'Reminder removed',
+      'update_reminder_success_title': 'Done!',
+      'update_reminder_success_message': 'Reminder updated',
+      'empty': 'nothing to show :('
     },
     'pt_BR': {
       'title': 'Lembretes',
@@ -92,6 +99,13 @@ class Messages extends Translations {
       'reminder_success_message': 'Lembrete criado',
       'reminder_error_title': 'Eita!',
       'reminder_error_message': 'Erro ao criar lembrete',
+      'edit': 'Editar',
+      'delete': 'Excluir',
+      'delete_reminder_success_title': 'Feito!',
+      'delete_reminder_success_message': 'Lembrete excluído',
+      'update_reminder_success_title': 'Feito!',
+      'update_reminder_success_message': 'Lembrete alterado',
+      'empty': 'Nada pra mostrar :('
     }
   };
 
