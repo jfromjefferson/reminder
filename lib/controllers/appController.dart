@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remind_me_of/database/models/category/category.dart';
@@ -5,6 +6,7 @@ import 'package:remind_me_of/database/models/reminder/reminder.dart';
 import 'package:remind_me_of/database/queries/category/category.dart';
 import 'package:remind_me_of/database/queries/reminder/reminder.dart';
 import 'package:remind_me_of/screens/newReminderScreen.dart';
+import 'package:remind_me_of/services/local_notification.dart';
 import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/utils/functions.dart';
 import 'package:remind_me_of/widgets/customButton.dart';
@@ -28,6 +30,37 @@ class AppController extends GetxController {
     categoryList.value = categoryResponse;
 
     categoryDropList = await setCategoryDropdown();
+
+    List<Reminder> reminderList = await getReminderList();
+    
+    DateTime now = DateTime.now();
+    reminderList.forEach((reminder) async {
+      if(reminder.reminderDate.isBefore(now)){
+        await deleteReminder(key: reminder.key);
+      }
+    });
+
+    FirebaseMessaging.instance.getInitialMessage();
+
+    // Work for app in foreground
+    FirebaseMessaging.onMessage.listen((message) {
+      LocalNotificationService.display(message: message);
+    });
+
+    //FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+    /*NotificationSettings settings = await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );*/
+
+
+
 
     super.onInit();
   }
@@ -72,7 +105,7 @@ class AppController extends GetxController {
       );
 
       await updateReminder(reminder: reminder, key: key);
-
+      Get.back();
       alert(title: 'update_reminder_success_title', message: 'update_reminder_success_message');
 
       update();

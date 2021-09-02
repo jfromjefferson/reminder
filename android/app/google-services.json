@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "576062202823",
+    "project_id": "remind-me-a0732",
+    "storage_bucket": "remind-me-a0732.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576062202823:android:d633e4a65c327f71086fe2",
+        "android_client_info": {
+          "package_name": "com.oitobits.remind_me_of"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576062202823-uopbj0tgc54gk116udftiula4g5vrq61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCswoPdlrbwQulhUDREnIjbiEnCOzvNYLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576062202823-uopbj0tgc54gk116udftiula4g5vrq61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

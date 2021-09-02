@@ -39,7 +39,7 @@ class SettingsScreen extends StatelessWidget {
                             Get.to(() => CategoryListScreen(), transition: Transition.cupertino);
                           },
                           child: ListTile(
-                            leading: Icon(LineIcons.objectGroup, size: 35, color: primaryColor),
+                            leading: Icon(LineIcons.list, size: 35, color: primaryColor),
                             title: CustomText(text: 'categories'.tr, size: 18),
                             subtitle: CustomText(text: 'categories_sub'.tr, size: 12),
                             trailing: Icon(LineIcons.arrowRight, size: 30, color: primaryColor),
