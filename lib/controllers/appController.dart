@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remind_me_of/database/models/category/category.dart';
@@ -11,6 +10,7 @@ import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/utils/functions.dart';
 import 'package:remind_me_of/widgets/customButton.dart';
 import 'package:remind_me_of/widgets/customText.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 class AppController extends GetxController {
   var categoryList = [].obs;
@@ -26,6 +26,8 @@ class AppController extends GetxController {
 
   @override
   void onInit() async {
+    tz.initializeTimeZones();
+
     List<Category> categoryResponse = await getCategoryList();
     categoryList.value = categoryResponse;
 
@@ -39,29 +41,7 @@ class AppController extends GetxController {
         await deleteReminder(key: reminder.key);
       }
     });
-
-    FirebaseMessaging.instance.getInitialMessage();
-
-    // Work for app in foreground
-    FirebaseMessaging.onMessage.listen((message) {
-      LocalNotificationService.display(message: message);
-    });
-
-    //FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-    /*NotificationSettings settings = await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );*/
-
-
-
-
+    
     super.onInit();
   }
 
@@ -77,6 +57,13 @@ class AppController extends GetxController {
       );
 
       await createReminder(reminder: reminder);
+
+      if(repeat == ''){
+        LocalNotificationService.schedule(reminder: reminder);
+      }else{
+        LocalNotificationService.periodically(reminder: reminder);
+      }
+
       Get.back();
       alert(title: 'reminder_success_title', message: 'reminder_success_message');
     }else{
