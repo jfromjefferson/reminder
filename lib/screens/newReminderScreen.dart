@@ -165,7 +165,7 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                                 items: [
                                   {'value': 'once_a_day', 'label': 'once_a_day'.tr},
                                   {'value': 'once_a_week', 'label': 'once_a_week'.tr},
-                                  {'value': 'once_a_month', 'label': 'once_a_month'.tr},
+                                  {'value': 'not_repeat', 'label': 'not_repeat'.tr},
                                 ],
                                 onChanged: (val) => {},
                                 onSaved: (val) => {},

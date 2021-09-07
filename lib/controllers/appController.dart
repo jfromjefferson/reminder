@@ -33,14 +33,14 @@ class AppController extends GetxController {
 
     categoryDropList = await setCategoryDropdown();
 
-    List<Reminder> reminderList = await getReminderList();
+    /*List<Reminder> reminderList = await getReminderList();
     
     DateTime now = DateTime.now();
     reminderList.forEach((reminder) async {
       if(reminder.reminderDate.isBefore(now)){
         await deleteReminder(key: reminder.key);
       }
-    });
+    });*/
     
     super.onInit();
   }
@@ -57,23 +57,19 @@ class AppController extends GetxController {
       );
 
       await createReminder(reminder: reminder);
-
-      if(repeat == ''){
-        LocalNotificationService.schedule(reminder: reminder);
-      }else{
-        LocalNotificationService.periodically(reminder: reminder);
-      }
+      await LocalNotificationService.schedule(reminder: reminder);
 
       Get.back();
-      alert(title: 'reminder_success_title', message: 'reminder_success_message');
+      alert(title: 'reminder_success_title', message: 'reminder_success_message'.tr);
     }else{
       Get.back();
-      alert(title: 'reminder_error_title', message: 'reminder_error_message');
+      alert(title: 'reminder_error_title', message: 'reminder_error_message'.tr);
     }
   }
 
   Future<void> delReminder({required int key}) async {
     await deleteReminder(key: key);
+    await LocalNotificationService.cancelNotification(id: key);
 
     alert(title: 'delete_reminder_success_title', message: 'delete_reminder_success_message');
 
@@ -92,6 +88,10 @@ class AppController extends GetxController {
       );
 
       await updateReminder(reminder: reminder, key: key);
+
+      await LocalNotificationService.cancelNotification(id: key);
+      await LocalNotificationService.schedule(reminder: reminder);
+
       Get.back();
       alert(title: 'update_reminder_success_title', message: 'update_reminder_success_message');
 
@@ -163,8 +163,15 @@ class AppController extends GetxController {
 
     List<Reminder> reminderResponse = await getReminderList();
 
-    reminderResponse.forEach((reminder) {
+    DateTime now = DateTime.now();
+
+    reminderResponse.forEach((reminder) async {
       Color textColor = Color(reminder.color).computeLuminance() > 0.5 ? Colors.black : Colors.white;
+
+      if(reminder.reminderDate.isBefore(now) && reminder.repeat == '' || reminder.repeat == 'not_repeat'){
+        await LocalNotificationService.cancelNotification(id: reminder.key);
+        await deleteReminder(key: reminder.key);
+      }
 
       widgetList.add(
           GestureDetector(

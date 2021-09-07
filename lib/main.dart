@@ -9,7 +9,7 @@ import 'package:remind_me_of/utils/registerAdapter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  LocalNotificationService.initialize();
+  await LocalNotificationService.initialize();
 
   await Hive.initFlutter();
 

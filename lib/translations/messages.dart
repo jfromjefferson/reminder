@@ -53,7 +53,9 @@ class Messages extends Translations {
       'delete_reminder_success_message': 'Reminder removed',
       'update_reminder_success_title': 'Done!',
       'update_reminder_success_message': 'Reminder updated',
-      'empty': 'nothing to show :('
+      'empty': 'nothing to show :(',
+      'not_repeat': 'don\'t repeat',
+      'past_time_error': 'Deve ser uma data no futuro'
     },
     'pt_BR': {
       'title': 'Lembretes',
@@ -105,7 +107,9 @@ class Messages extends Translations {
       'delete_reminder_success_message': 'Lembrete excluído',
       'update_reminder_success_title': 'Feito!',
       'update_reminder_success_message': 'Lembrete alterado',
-      'empty': 'Nada pra mostrar :('
+      'empty': 'Nada pra mostrar :(',
+      'not_repeat': 'Não repetir',
+      'past_time_error': 'Must be a date in the future'
     }
   };
 
