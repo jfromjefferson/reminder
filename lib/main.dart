@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       translations: Messages(),
-      locale: Locale('pt', 'BR'),
-      fallbackLocale: Locale('en', 'US'),
+      locale: Locale('pt_BR'),
+      fallbackLocale: Locale('en_US'),
       debugShowCheckedModeBanner: false,
       title: 'remind me',
       theme: ThemeData.light().copyWith(

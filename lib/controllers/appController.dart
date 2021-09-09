@@ -24,6 +24,8 @@ class AppController extends GetxController {
 
   late Reminder reminderToEdit;
 
+  String selectedCategory = '';
+
   @override
   void onInit() async {
     tz.initializeTimeZones();
@@ -111,6 +113,7 @@ class AppController extends GetxController {
       categoryDropList = await setCategoryDropdown();
       update();
       Get.back();
+      alert(title: 'category_success_title', message: 'category_success_message');
     }else{
 
       alert(title: 'category_error_title', message: 'category_error_message');
@@ -132,6 +135,7 @@ class AppController extends GetxController {
       categoryDropList = await setCategoryDropdown();
       update();
       Get.back();
+      alert(title: 'category_success_title', message: 'category_update_success_message');
     }else{
 
       alert(title: 'category_error_title', message: 'category_error_message');
@@ -142,6 +146,12 @@ class AppController extends GetxController {
     controller..text = '';
     Get.focusScope!.unfocus();
     update();
+  }
+
+  void setCategoryFilter({required String category}){
+    selectedCategory = category;
+    update();
+    Get.back();
   }
 
   Future<List<Map<String, dynamic>>> setCategoryDropdown() async {
@@ -161,17 +171,10 @@ class AppController extends GetxController {
   Future<List<Widget>> createReminderList() async {
     List<Widget> widgetList = [];
 
-    List<Reminder> reminderResponse = await getReminderList();
-
-    DateTime now = DateTime.now();
+    List<Reminder> reminderResponse = await getReminderList(category: selectedCategory);
 
     reminderResponse.forEach((reminder) async {
       Color textColor = Color(reminder.color).computeLuminance() > 0.5 ? Colors.black : Colors.white;
-
-      if(reminder.reminderDate.isBefore(now) && reminder.repeat == '' || reminder.repeat == 'not_repeat'){
-        await LocalNotificationService.cancelNotification(id: reminder.key);
-        await deleteReminder(key: reminder.key);
-      }
 
       widgetList.add(
           GestureDetector(
