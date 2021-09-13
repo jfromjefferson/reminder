@@ -1,6 +1,6 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:remind_me_of/controllers/appController.dart';
 import 'package:remind_me_of/database/models/reminder/reminder.dart';
@@ -9,6 +9,7 @@ import 'package:remind_me_of/widgets/customButton.dart';
 import 'package:remind_me_of/widgets/customText.dart';
 import 'package:get/get.dart';
 import 'package:remind_me_of/widgets/customTextField.dart';
+import 'package:remind_me_of/widgets/futureAds.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:flex_color_picker/flex_color_picker.dart';
 
@@ -104,7 +105,8 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                         onColorChanged: (Color color){
                           appController.selectedColor = color.value;
                         },
-                      )
+                      ),
+                      FutureAds(size: AdmobBannerSize.FULL_BANNER, settings: appController.settings),
                     ],
                   );
                 },

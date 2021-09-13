@@ -17,7 +17,9 @@ class LocalNotificationService {
   );
 
   static Future<void> initialize() async {
-    InitializationSettings initializationSettings = InitializationSettings(android: AndroidInitializationSettings('ic_launcher'));
+    InitializationSettings initializationSettings = InitializationSettings(
+      android: AndroidInitializationSettings('@mipmap/ic_launcher')
+    );
 
     _notificationsPlugin.initialize(initializationSettings);
     //_notificationsPlugin.cancelAll();

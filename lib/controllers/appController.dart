@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remind_me_of/database/models/category/category.dart';
 import 'package:remind_me_of/database/models/reminder/reminder.dart';
+import 'package:remind_me_of/database/models/settings/settings.dart';
 import 'package:remind_me_of/database/queries/category/category.dart';
 import 'package:remind_me_of/database/queries/reminder/reminder.dart';
+import 'package:remind_me_of/database/queries/settings/settings.dart';
 import 'package:remind_me_of/screens/newReminderScreen.dart';
 import 'package:remind_me_of/services/local_notification.dart';
 import 'package:remind_me_of/utils/colors.dart';
@@ -13,6 +15,7 @@ import 'package:remind_me_of/widgets/customText.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 class AppController extends GetxController {
+  Settings settings = Settings(languageCode: 'en_US', deletePastReminders: true, showAds: true);
   var categoryList = [].obs;
   List<Map<String, dynamic>> categoryDropList = [];
 
@@ -26,23 +29,24 @@ class AppController extends GetxController {
 
   String selectedCategory = '';
 
+  String selectedLanguageCode = '';
+  var deleteOldReminders = true.obs;
+
   @override
   void onInit() async {
+    settings = await getSettings();
+    selectedLanguageCode = settings.languageCode;
+    deleteOldReminders.value = settings.deletePastReminders;
+
+    Locale locale = Locale(settings.languageCode);
+    Get.updateLocale(locale);
+
     tz.initializeTimeZones();
 
     List<Category> categoryResponse = await getCategoryList();
     categoryList.value = categoryResponse;
 
     categoryDropList = await setCategoryDropdown();
-
-    /*List<Reminder> reminderList = await getReminderList();
-    
-    DateTime now = DateTime.now();
-    reminderList.forEach((reminder) async {
-      if(reminder.reminderDate.isBefore(now)){
-        await deleteReminder(key: reminder.key);
-      }
-    });*/
     
     super.onInit();
   }

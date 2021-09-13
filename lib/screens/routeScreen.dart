@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:remind_me_of/screens/categoryListScreen.dart';
 import 'package:remind_me_of/screens/mainScreen.dart';
-import 'package:remind_me_of/screens/settingsScreen.dart';
 import 'package:remind_me_of/screens/newReminderScreen.dart';
 
 class RouteScreen extends StatefulWidget {

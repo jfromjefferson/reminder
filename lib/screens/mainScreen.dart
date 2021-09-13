@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:remind_me_of/controllers/appController.dart';
+import 'package:remind_me_of/database/models/settings/settings.dart';
+import 'package:remind_me_of/database/queries/settings/settings.dart';
 import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/widgets/customButton.dart';
 import 'package:remind_me_of/widgets/customText.dart';
+import 'package:remind_me_of/widgets/futureAds.dart';
 import 'package:select_form_field/select_form_field.dart';
 
 class MainScreen extends StatelessWidget {
@@ -28,7 +32,8 @@ class MainScreen extends StatelessWidget {
                       CustomText(text: 'title'.tr, size: 30, weight: FontWeight.bold),
                       Row(
                         children: [
-                          IconButton(
+                          appController.categoryList.length > 0
+                          ? IconButton(
                             onPressed: (){
                               Get.dialog(
                                 GestureDetector(
@@ -39,7 +44,7 @@ class MainScreen extends StatelessWidget {
                                     backgroundColor: Colors.white,
                                     title: CustomText(text: 'search_title'.tr),
                                     content: Container(
-                                      height: 180,
+                                      height: 150,
                                       child: Column(
                                         children: [
                                           Expanded(
@@ -84,7 +89,8 @@ class MainScreen extends StatelessWidget {
                               );
                             },
                             icon: Icon(LineIcons.search, size: 35),
-                          ),
+                          )
+                          : SizedBox(),
                           SizedBox(width: 10),
                           IconButton(
                             onPressed: (){
@@ -99,6 +105,7 @@ class MainScreen extends StatelessWidget {
                                     content: Container(
                                       height: 180,
                                       child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.stretch,
                                         children: [
                                           SelectFormField(
                                             icon: Icon(LineIcons.language, size: 30, color: primaryColor),
@@ -110,17 +117,59 @@ class MainScreen extends StatelessWidget {
                                               {'value': 'pt_BR', 'label': 'Português'}
                                             ],
                                             onChanged: (value) {
-                                              Locale locale = Locale(value);
-                                              Get.updateLocale(locale);
+                                              appController.selectedLanguageCode = value;
                                             },
                                             onSaved: (value) => {},
+                                          ),
+                                          SizedBox(height: 20),
+                                          Row(
+                                            children: [
+                                              Flexible(
+                                                child: CustomText(text: 'delete_past'.tr)
+                                              ),
+                                              Obx(() => Switch(
+                                                onChanged: (bool value){
+                                                  appController.deleteOldReminders.value = value;
+                                                },
+                                                value: appController.deleteOldReminders.value,
+                                              )),
+                                            ],
                                           )
                                         ],
                                       ),
                                     ),
-                                    actions: [],
+                                    actions: [
+                                      CustomButton(
+                                        onPressed: () async {
+                                          Locale locale = Locale(appController.selectedLanguageCode);
+                                          Get.updateLocale(locale);
+                                          Settings settings = Settings(
+                                            languageCode: appController.selectedLanguageCode,
+                                            deletePastReminders: appController.deleteOldReminders.value,
+                                            showAds: appController.settings.showAds
+                                          );
+
+                                          await updateSettings(settings: settings);
+                                          Get.back();
+                                        },
+                                        text: 'yes'.tr,
+                                        padding: EdgeInsets.all(0),
+                                        buttonColor: primaryColor,
+                                        textSize: 15,
+                                      ),
+                                      CustomButton(
+                                        onPressed: (){
+                                          Get.back();
+                                        },
+                                        text: 'back'.tr,
+                                        padding: EdgeInsets.all(0),
+                                        buttonColor: Colors.grey,
+                                        textSize: 15,
+                                      ),
+                                    ],
                                   ),
                                 ),
+                                barrierDismissible: false
                               );
                             },
                             icon: Icon(LineIcons.cog, size: 35),
@@ -140,6 +189,7 @@ class MainScreen extends StatelessWidget {
                             if(snapshot.data.length > 0){
                               return ListView(
                                 children: [
+                                  SizedBox(height: 10),
                                   Wrap(
                                     spacing: 10,
                                     runSpacing: 10,
@@ -161,6 +211,7 @@ class MainScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  FutureAds(size: AdmobBannerSize.FULL_BANNER, settings: appController.settings),
                 ],
               ),
             );

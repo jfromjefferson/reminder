@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
-import 'package:remind_me_of/utils/colors.dart';
+import 'package:device_info/device_info.dart';
 
 String formatDate({required DateTime date, String ?repeat}){
   DateTime today = DateTime.now();
@@ -31,8 +31,15 @@ void alert({required String title, required String message}){
   Get.snackbar(
       '$title'.tr,
       '$message'.tr,
-      backgroundColor: hasError ? Color(0xfff94144): Color(0xff2d6a4f),
+      backgroundColor: hasError ? Color(0xfff94144): Color(0xff63f23f),
       colorText: Colors.white,
       margin: EdgeInsets.only(top: 10, left: 5, right: 5)
   );
+}
+
+Future<AndroidDeviceInfo> getDeviceInfo() async {
+  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+  AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+
+  return androidInfo;
 }

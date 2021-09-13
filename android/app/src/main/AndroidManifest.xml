@@ -1,10 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oitobits.remind_me_of">
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
    <application
-        android:label="remind_me_of"
+        android:label="reminder"
         android:icon="@mipmap/ic_launcher">
+       <meta-data
+           android:name="com.google.android.gms.ads.APPLICATION_ID"
+           android:value="ca-app-pub-9994004463953740~6490805127"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

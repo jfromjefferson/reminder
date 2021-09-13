@@ -23,7 +23,7 @@ class Messages extends Translations {
           'yes': 'Yes',
           'no': 'No',
           'move_to_trash_date': 'Moved to trash in: ',
-          'categories': 'Category',
+          'categories': 'Categories',
           'clear': 'Clear',
           'back': 'Back',
           'new_category': 'New category',
@@ -59,7 +59,8 @@ class Messages extends Translations {
           'search_title': 'Filter by category',
           'past_time_error': 'Must be a date in the future',
           'clear_search': 'Clear filter',
-          'change_language': 'Change language'
+          'change_language': 'Change language',
+          'delete_past': 'Delete olds reminders'
         },
         'pt_BR': {
           'title': 'Lembretes',
@@ -117,7 +118,8 @@ class Messages extends Translations {
           'search_title': 'Filtrar por categoria',
           'past_time_error': 'Deve ser uma data no futuro',
           'clear_search': 'Limpar filtro',
-          'change_language': 'Trocar idioma'
+          'change_language': 'Trocar idioma',
+          'delete_past': 'Deletar lembretes antigos'
         }
       };
 }

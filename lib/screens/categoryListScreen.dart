@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:remind_me_of/controllers/appController.dart';
@@ -6,6 +7,7 @@ import 'package:remind_me_of/widgets/customButton.dart';
 import 'package:remind_me_of/widgets/customText.dart';
 import 'package:get/get.dart';
 import 'package:remind_me_of/widgets/customTextField.dart';
+import 'package:remind_me_of/widgets/futureAds.dart';
 
 class CategoryListScreen extends StatelessWidget {
   final AppController appController = Get.put(AppController());
@@ -108,6 +110,7 @@ class CategoryListScreen extends StatelessWidget {
                   }
                 },
               ),
+              FutureAds(size: AdmobBannerSize.FULL_BANNER, settings: appController.settings),
             ],
           ),
         ),

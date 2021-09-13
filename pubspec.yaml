@@ -38,13 +38,21 @@ dependencies:
   select_form_field: ^2.2.0
   flex_color_picker: ^2.1.2
   flutter_local_notifications: ^8.1.1+2
+  admob_flutter: ^2.0.0-nullsafety.1
+  device_info: ^2.0.2
 
 dev_dependencies:
   hive_generator: ^1.1.0
   build_runner: ^2.1.1
+  flutter_native_splash: ^1.2.3
 
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: '#ffffff'
+  image: 'assets/splash.png'
+  android: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
