@@ -31,12 +31,14 @@ class AppController extends GetxController {
 
   String selectedLanguageCode = '';
   var deleteOldReminders = true.obs;
+  var removeAds = false.obs;
 
   @override
   void onInit() async {
     settings = await getSettings();
     selectedLanguageCode = settings.languageCode;
     deleteOldReminders.value = settings.deletePastReminders;
+    removeAds.value = settings.showAds;
 
     Locale locale = Locale(settings.languageCode);
     Get.updateLocale(locale);

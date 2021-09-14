@@ -60,7 +60,8 @@ class Messages extends Translations {
           'past_time_error': 'Must be a date in the future',
           'clear_search': 'Clear filter',
           'change_language': 'Change language',
-          'delete_past': 'Delete olds reminders'
+          'delete_past': 'Delete olds reminders',
+          'remove_ads': 'Remove ads'
         },
         'pt_BR': {
           'title': 'Lembretes',
@@ -119,7 +120,8 @@ class Messages extends Translations {
           'past_time_error': 'Deve ser uma data no futuro',
           'clear_search': 'Limpar filtro',
           'change_language': 'Trocar idioma',
-          'delete_past': 'Deletar lembretes antigos'
+          'delete_past': 'Deletar lembretes antigos',
+          'remove_ads': 'Remover anúncios'
         }
       };
 }

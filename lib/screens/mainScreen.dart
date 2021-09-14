@@ -5,6 +5,7 @@ import 'package:admob_flutter/admob_flutter.dart';
 import 'package:remind_me_of/controllers/appController.dart';
 import 'package:remind_me_of/database/models/settings/settings.dart';
 import 'package:remind_me_of/database/queries/settings/settings.dart';
+import 'package:remind_me_of/services/purchase.dart';
 import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/widgets/customButton.dart';
 import 'package:remind_me_of/widgets/customText.dart';
@@ -103,7 +104,7 @@ class MainScreen extends StatelessWidget {
                                     backgroundColor: Colors.white,
                                     title: CustomText(text: 'settings_title'.tr),
                                     content: Container(
-                                      height: 180,
+                                      height: 200,
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.stretch,
                                         children: [
@@ -134,7 +135,26 @@ class MainScreen extends StatelessWidget {
                                                 value: appController.deleteOldReminders.value,
                                               )),
                                             ],
-                                          )
+                                          ),
+                                          SizedBox(height: 20),
+                                          Row(
+                                            children: [
+                                              Flexible(
+                                                  child: CustomText(text: 'remove_ads'.tr)
+                                              ),
+                                              Obx(() => Switch(
+                                                onChanged: (bool value) async {
+                                                  /*final offerings = await PurchaseApi.fetchOffers();
+                                                  final offer = offerings.first;
+
+                                                  print(offer);*/
+
+                                                  appController.removeAds.value = value;
+                                                },
+                                                value: appController.removeAds.value,
+                                              )),
+                                            ],
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -146,7 +166,7 @@ class MainScreen extends StatelessWidget {
                                           Settings settings = Settings(
                                             languageCode: appController.selectedLanguageCode,
                                             deletePastReminders: appController.deleteOldReminders.value,
-                                            showAds: appController.settings.showAds
+                                            showAds: appController.removeAds.value
                                           );
 
                                           await updateSettings(settings: settings);

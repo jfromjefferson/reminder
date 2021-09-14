@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       locale: Locale(appController.settings.languageCode),
       fallbackLocale: Locale('pt_BR'),
       debugShowCheckedModeBanner: false,
-      title: 'remind me',
+      title: 'reminder',
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: whiteColor
       ),
