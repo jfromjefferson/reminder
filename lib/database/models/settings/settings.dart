@@ -10,15 +10,15 @@ class Settings extends HiveObject {
   bool deletePastReminders;
 
   @HiveField(2)
-  bool showAds;
+  bool removeAds;
 
-  Settings({required this.languageCode, required this.deletePastReminders, required this.showAds});
+  Settings({required this.languageCode, required this.deletePastReminders, required this.removeAds});
 
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = {
       'languageCode': languageCode,
       'deletePastReminders': deletePastReminders,
-      'showAds': showAds,
+      'removeAds': removeAds,
     };
 
     return map;

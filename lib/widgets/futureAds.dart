@@ -20,8 +20,7 @@ class FutureAds extends StatelessWidget {
     return FutureBuilder(
       future: loading(),
       builder: (BuildContext context, AsyncSnapshot snapshot){
-        if(snapshot.hasData && !settings.showAds){
-          //return Text('Isso é um anuncio');
+        if(snapshot.hasData && !settings.removeAds){
           return AdmobBanner(
             adSize: size,
             adUnitId: AdsService().getBannerId(),

@@ -31,7 +31,7 @@ void alert({required String title, required String message}){
   Get.snackbar(
       '$title'.tr,
       '$message'.tr,
-      backgroundColor: hasError ? Color(0xfff94144): Color(0xff63f23f),
+      backgroundColor: hasError ? Color(0xfff94144): Color(0xff53b53a),
       colorText: Colors.white,
       margin: EdgeInsets.only(top: 10, left: 5, right: 5)
   );

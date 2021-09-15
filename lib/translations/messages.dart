@@ -55,7 +55,7 @@ class Messages extends Translations {
           'update_reminder_success_title': 'Done!',
           'update_reminder_success_message': 'Reminder updated',
           'empty': 'nothing to show :(',
-          'not_repeat': 'don\'t repeat',
+          'not_repeat': 'Don\'t repeat',
           'search_title': 'Filter by category',
           'past_time_error': 'Must be a date in the future',
           'clear_search': 'Clear filter',

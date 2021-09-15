@@ -2,7 +2,7 @@ import 'package:purchases_flutter/offering_wrapper.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 class PurchaseApi {
-  static final String _apiKey = '';
+  static final String _apiKey = 'kbAvXoLKJckqGXhTJLRWbcBsHaaqoxHO';
 
   static Future init() async {
     await Purchases.setDebugLogsEnabled(true);
@@ -19,4 +19,14 @@ class PurchaseApi {
       return [];
     }
   }
+
+  static Future<bool> purchasePackage({required Package package}) async{
+    try {
+      await Purchases.purchasePackage(package);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
 }

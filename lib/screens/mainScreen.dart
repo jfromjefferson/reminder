@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:admob_flutter/admob_flutter.dart';
+import 'package:purchases_flutter/object_wrappers.dart';
 import 'package:remind_me_of/controllers/appController.dart';
 import 'package:remind_me_of/database/models/settings/settings.dart';
 import 'package:remind_me_of/database/queries/settings/settings.dart';
@@ -104,7 +105,7 @@ class MainScreen extends StatelessWidget {
                                     backgroundColor: Colors.white,
                                     title: CustomText(text: 'settings_title'.tr),
                                     content: Container(
-                                      height: 200,
+                                      height: 230,
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.stretch,
                                         children: [
@@ -144,12 +145,21 @@ class MainScreen extends StatelessWidget {
                                               ),
                                               Obx(() => Switch(
                                                 onChanged: (bool value) async {
-                                                  /*final offerings = await PurchaseApi.fetchOffers();
-                                                  final offer = offerings.first;
+                                                  if(!appController.removeAds.value){
+                                                    final offerings = await PurchaseApi.fetchOffers();
+                                                    final offer = offerings.first;
+                                                    final Package package = offer.availablePackages.first;
 
-                                                  print(offer);*/
+                                                    bool success = await PurchaseApi.purchasePackage(package: package);
+                                                    print(success);
 
-                                                  appController.removeAds.value = value;
+                                                    if(success){
+                                                      appController.removeAds.value = value;
+                                                    }
+                                                  }else{
+                                                    appController.removeAds.value = value;
+                                                  }
+
                                                 },
                                                 value: appController.removeAds.value,
                                               )),
@@ -163,14 +173,7 @@ class MainScreen extends StatelessWidget {
                                         onPressed: () async {
                                           Locale locale = Locale(appController.selectedLanguageCode);
                                           Get.updateLocale(locale);
-                                          Settings settings = Settings(
-                                            languageCode: appController.selectedLanguageCode,
-                                            deletePastReminders: appController.deleteOldReminders.value,
-                                            showAds: appController.removeAds.value
-                                          );
-
-                                          await updateSettings(settings: settings);
-                                          Get.back();
+                                          appController.saveSettings();
                                         },
                                         text: 'yes'.tr,
                                         padding: EdgeInsets.all(0),

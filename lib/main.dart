@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:remind_me_of/controllers/appController.dart';
 import 'package:remind_me_of/screens/routeScreen.dart';
 import 'package:remind_me_of/services/local_notification.dart';
+import 'package:remind_me_of/services/purchase.dart';
 import 'package:remind_me_of/translations/messages.dart';
 import 'package:remind_me_of/utils/colors.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -13,6 +14,8 @@ import 'package:admob_flutter/admob_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Admob.initialize();
+
+  await PurchaseApi.init();
   await LocalNotificationService.initialize();
 
   await Hive.initFlutter();

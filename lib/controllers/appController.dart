@@ -7,6 +7,7 @@ import 'package:remind_me_of/database/queries/category/category.dart';
 import 'package:remind_me_of/database/queries/reminder/reminder.dart';
 import 'package:remind_me_of/database/queries/settings/settings.dart';
 import 'package:remind_me_of/screens/newReminderScreen.dart';
+import 'package:remind_me_of/screens/routeScreen.dart';
 import 'package:remind_me_of/services/local_notification.dart';
 import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/utils/functions.dart';
@@ -15,7 +16,7 @@ import 'package:remind_me_of/widgets/customText.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 class AppController extends GetxController {
-  Settings settings = Settings(languageCode: 'en_US', deletePastReminders: true, showAds: true);
+  Settings settings = Settings(languageCode: 'en_US', deletePastReminders: true, removeAds: false);
   var categoryList = [].obs;
   List<Map<String, dynamic>> categoryDropList = [];
 
@@ -38,7 +39,7 @@ class AppController extends GetxController {
     settings = await getSettings();
     selectedLanguageCode = settings.languageCode;
     deleteOldReminders.value = settings.deletePastReminders;
-    removeAds.value = settings.showAds;
+    removeAds.value = settings.removeAds;
 
     Locale locale = Locale(settings.languageCode);
     Get.updateLocale(locale);
@@ -100,7 +101,7 @@ class AppController extends GetxController {
       await LocalNotificationService.cancelNotification(id: key);
       await LocalNotificationService.schedule(reminder: reminder);
 
-      Get.back();
+      Get.to(() => RouteScreen());
       alert(title: 'update_reminder_success_title', message: 'update_reminder_success_message');
 
       update();
@@ -294,6 +295,19 @@ class AppController extends GetxController {
     });
 
     return widgetList;
+  }
+
+  Future<void> saveSettings() async {
+    Settings settings = Settings(
+        languageCode: selectedLanguageCode,
+        deletePastReminders: deleteOldReminders.value,
+        removeAds: removeAds.value
+    );
+
+    await updateSettings(settings: settings);
+    this.settings = settings;
+    Get.back();
+    update();
   }
 
 }

@@ -115,6 +115,7 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: (){
+              Get.focusScope!.unfocus();
               Get.dialog(
                 GestureDetector(
                   onTap: (){

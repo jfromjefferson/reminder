@@ -19,7 +19,7 @@ class SettingsAdapter extends TypeAdapter<Settings> {
     return Settings(
       languageCode: fields[0] as String,
       deletePastReminders: fields[1] as bool,
-      showAds: fields[2] as bool,
+      removeAds: fields[2] as bool,
     );
   }
 
@@ -32,7 +32,7 @@ class SettingsAdapter extends TypeAdapter<Settings> {
       ..writeByte(1)
       ..write(obj.deletePastReminders)
       ..writeByte(2)
-      ..write(obj.showAds);
+      ..write(obj.removeAds);
   }
 
   @override
