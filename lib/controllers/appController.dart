@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:remind_me_of/database/models/category/category.dart';
 import 'package:remind_me_of/database/models/reminder/reminder.dart';
 import 'package:remind_me_of/database/models/settings/settings.dart';
@@ -14,6 +16,7 @@ import 'package:remind_me_of/utils/functions.dart';
 import 'package:remind_me_of/widgets/customButton.dart';
 import 'package:remind_me_of/widgets/customText.dart';
 import 'package:timezone/data/latest.dart' as tz;
+
 
 class AppController extends GetxController {
   Settings settings = Settings(languageCode: 'en_US', deletePastReminders: true, removeAds: false);
@@ -50,6 +53,21 @@ class AppController extends GetxController {
     categoryList.value = categoryResponse;
 
     categoryDropList = await setCategoryDropdown();
+
+    print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+    try {
+      PurchaserInfo restoredInfo = await Purchases.restoreTransactions();
+      print(restoredInfo);
+    } on PlatformException catch (e) {
+      print('Error: $e');
+    }
+
+   /* Purchases.addPurchaserInfoUpdateListener((_) async {
+      print('entrei aquiiiiiiiiii');
+      PurchaserInfo purchaserInfo = await Purchases.getPurchaserInfo();
+      print('Active ${purchaserInfo.entitlements}');
+      // final entitlements = purchaserInfo.entitlements.active.values.toList();
+    });*/
     
     super.onInit();
   }

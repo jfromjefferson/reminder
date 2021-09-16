@@ -151,7 +151,7 @@ class MainScreen extends StatelessWidget {
                                                     final Package package = offer.availablePackages.first;
 
                                                     bool success = await PurchaseApi.purchasePackage(package: package);
-                                                    print(success);
+                                                    print('Success $success');
 
                                                     if(success){
                                                       appController.removeAds.value = value;
