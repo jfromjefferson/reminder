@@ -1,11 +1,12 @@
 import 'package:purchases_flutter/offering_wrapper.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:remind_me_of/services/keys.dart';
 
 class PurchaseApi {
-  static final String _apiKey = 'kbAvXoLKJckqGXhTJLRWbcBsHaaqoxHO';
+  static final String _apiKey = Keys.reminderKey;
 
   static Future init() async {
-    await Purchases.setDebugLogsEnabled(true);
+    await Purchases.setDebugLogsEnabled(false);
     await Purchases.setup(_apiKey);
   }
 
@@ -22,7 +23,12 @@ class PurchaseApi {
 
   static Future<bool> purchasePackage({required Package package}) async{
     try {
-      await Purchases.purchasePackage(package);
+      PurchaserInfo purchaserInfo = await Purchases.getPurchaserInfo();
+      if(purchaserInfo.entitlements.active.isEmpty){
+        await Purchases.purchasePackage(package);
+        return true;
+      }
+
       return true;
     } catch (e) {
       return false;
