@@ -61,7 +61,8 @@ class Messages extends Translations {
           'clear_search': 'Clear filter',
           'change_language': 'Change language',
           'delete_past': 'Delete olds reminders',
-          'remove_ads': 'Remove ads'
+          'remove_ads': 'Remove ads',
+          'active_reminder': 'Is active',
         },
         'pt_BR': {
           'title': 'Lembretes',
@@ -121,7 +122,8 @@ class Messages extends Translations {
           'clear_search': 'Limpar filtro',
           'change_language': 'Trocar idioma',
           'delete_past': 'Deletar lembretes antigos',
-          'remove_ads': 'Remover anúncios'
+          'remove_ads': 'Remover anúncios',
+          'active_reminder': 'Ativo',
         }
       };
 }

@@ -36,6 +36,8 @@ Future<List<Reminder>> getReminderList({String ?category}) async {
         if(value.repeat == '' || value.repeat == 'not_repeat'){
           await LocalNotificationService.cancelNotification(id: value.key);
           await deleteReminder(key: value.key);
+        }else{
+          reminderList.add(value);
         }
       }else{
         reminderList.add(value);

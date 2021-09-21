@@ -4,8 +4,6 @@ import 'package:line_icons/line_icons.dart';
 import 'package:admob_flutter/admob_flutter.dart';
 import 'package:purchases_flutter/object_wrappers.dart';
 import 'package:remind_me_of/controllers/appController.dart';
-import 'package:remind_me_of/database/models/settings/settings.dart';
-import 'package:remind_me_of/database/queries/settings/settings.dart';
 import 'package:remind_me_of/services/purchase.dart';
 import 'package:remind_me_of/utils/colors.dart';
 import 'package:remind_me_of/widgets/customButton.dart';
@@ -105,7 +103,7 @@ class MainScreen extends StatelessWidget {
                                     backgroundColor: Colors.white,
                                     title: CustomText(text: 'settings_title'.tr),
                                     content: Container(
-                                      height: 230,
+                                      height: 260,
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.stretch,
                                         children: [
@@ -213,7 +211,7 @@ class MainScreen extends StatelessWidget {
                                 children: [
                                   SizedBox(height: 10),
                                   Wrap(
-                                    spacing: 10,
+                                    spacing: 8,
                                     runSpacing: 10,
                                     alignment: WrapAlignment.spaceBetween,
                                     children: snapshot.data,

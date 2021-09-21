@@ -22,13 +22,17 @@ class Reminder extends HiveObject {
   @HiveField(5)
   late int color;
 
+  @HiveField(6)
+  late bool isActive;
+
   Reminder({
     this.category,
     this.content,
     required this.reminderDate,
     this.repeat,
     required this.title,
-    required this.color
+    required this.color,
+    this.isActive = true,
   });
 
   Map<String, dynamic> toMap() {
@@ -39,6 +43,7 @@ class Reminder extends HiveObject {
       'repeat': repeat,
       'category': category,
       'color': color,
+      'isActive': isActive,
     };
 
     return map;
@@ -51,6 +56,7 @@ class Reminder extends HiveObject {
     repeat = map['repeat'];
     category = map['category'];
     color = map['color'];
+    isActive = map['isActive'];
   }
 
 }

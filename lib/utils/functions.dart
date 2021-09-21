@@ -8,7 +8,7 @@ String formatDate({required DateTime date, String ?repeat}){
   String hourFormatted = DateFormat('HH:mm').format(date);
   String dateFormatted = DateFormat('date_format_dm'.tr).format(date);
 
-  if(today.day == date.day && today.month == date.month){
+  if(today.day == date.day && today.month == date.month && (repeat == '' || repeat == 'not_repeat')){
     return '${"today".tr}, $hourFormatted';
   }else if(repeat == 'once_a_day'){
     return '${"everyday".tr}, $hourFormatted';

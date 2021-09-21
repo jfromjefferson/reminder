@@ -36,6 +36,7 @@ class AppController extends GetxController {
   String selectedLanguageCode = '';
   var deleteOldReminders = true.obs;
   var removeAds = false.obs;
+  var isActive = true.obs;
 
   @override
   void onInit() async {
@@ -86,8 +87,8 @@ class AppController extends GetxController {
   }
 
   Future<void> delReminder({required int key}) async {
-    await deleteReminder(key: key);
     await LocalNotificationService.cancelNotification(id: key);
+    await deleteReminder(key: key);
 
     alert(title: 'delete_reminder_success_title', message: 'delete_reminder_success_message');
 
@@ -198,6 +199,7 @@ class AppController extends GetxController {
               Get.to(() => NewReminderScreen(reminder: reminder), transition: Transition.cupertino);
             },
             onTap: (){
+              isActive.value = reminder.isActive;
               Get.bottomSheet(
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -225,6 +227,32 @@ class AppController extends GetxController {
                             text: formatDate(date: reminder.reminderDate,
                             repeat: reminder.repeat),
                             size: 19
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              CustomText(text: 'active_reminder'.tr, size: 19),
+                              SizedBox(width: 10),
+                              Obx(() => Switch(
+                                onChanged: (bool value) async {
+                                  isActive.value = value;
+                                  reminder.isActive = value;
+                                  await updateReminder(reminder: reminder, key: reminder.key);
+
+
+                                  if(reminder.reminderDate.isBefore(DateTime.now())){
+                                    reminder.reminderDate = reminder.reminderDate.add(Duration(days: 1));
+                                  }
+
+                                  if(!value){
+                                    await LocalNotificationService.cancelNotification(id: reminder.key);
+                                  }else{
+                                    await LocalNotificationService.schedule(reminder: reminder);
+                                  }
+                                },
+                                value: isActive.value,
+                              )),
+                            ],
                           ),
                           SizedBox(height: 30),
                           Row(
@@ -292,7 +320,7 @@ class AppController extends GetxController {
                       text: formatDate(date: reminder.reminderDate, repeat: reminder.repeat),
                       weight: FontWeight.bold,
                       color: textColor,
-                      size: 13,
+                      size: 12,
                       align: TextAlign.center,
                     ),
                   ),

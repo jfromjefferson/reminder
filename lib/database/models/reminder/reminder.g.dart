@@ -23,13 +23,14 @@ class ReminderAdapter extends TypeAdapter<Reminder> {
       repeat: fields[3] as String?,
       title: fields[0] as String,
       color: fields[5] as int,
+      isActive: fields[6] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, Reminder obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class ReminderAdapter extends TypeAdapter<Reminder> {
       ..writeByte(4)
       ..write(obj.category)
       ..writeByte(5)
-      ..write(obj.color);
+      ..write(obj.color)
+      ..writeByte(6)
+      ..write(obj.isActive);
   }
 
   @override

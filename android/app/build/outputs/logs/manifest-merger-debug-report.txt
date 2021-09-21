@@ -15,6 +15,12 @@ MERGED from [com.google.firebase:firebase-ads:19.1.0] /home/jeffsilvah/.gradle/c
 MERGED from [com.google.firebase:firebase-analytics:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/62b274eb1d5a61beb89e504ac46b32e2/jetified-firebase-analytics-19.0.1/AndroidManifest.xml:2:1-9:12
 MERGED from [com.revenuecat.purchases:purchases-hybrid-common:1.9.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/946b6f9bba677f7047371a2a2812cc9c/jetified-purchases-hybrid-common-1.9.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.revenuecat.purchases:purchases:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/a5ea60478cc08957062e1cffeea4894f/jetified-purchases-4.3.1/AndroidManifest.xml:2:1-13:12
+MERGED from [com.revenuecat.purchases:purchases-core-feature-identity:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e82c585313109b588d7580ad4654bbc9/jetified-purchases-core-feature-identity-4.3.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.revenuecat.purchases:purchases-core-feature-subscriber-attributes:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/ee3f91bfc829092545b8e3b745f8291b/jetified-purchases-core-feature-subscriber-attributes-4.3.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.revenuecat.purchases:purchases-store-google:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3ab3fa45f60b9b4a7101a6f181a0784b/jetified-purchases-store-google-4.3.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.revenuecat.purchases:purchases-core-common:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/27efcfd0ae1edd1865e21f842336001f/jetified-purchases-core-common-4.3.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.revenuecat.purchases:purchases-core-public:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e548b930601e7ab8b8c307d0ca223fe0/jetified-purchases-core-public-4.3.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/d3490d9d81ebe2d7174eb29e4a32f867/jetified-play-services-measurement-api-19.0.1/AndroidManifest.xml:17:1-36:12
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/2b663374f2a3beef67e4fc09532fc190/jetified-firebase-installations-17.0.0/AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-common:20.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e8c12af64c0d197211b7d090cb61cdf8/jetified-firebase-common-20.0.0/AndroidManifest.xml:15:1-40:12
@@ -24,8 +30,6 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk:19.0.1] /home/
 MERGED from [com.google.android.gms:play-services-ads:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/6c8729d0854291e2f95a289d291ad76f/jetified-play-services-ads-19.1.0/AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/cb03f219aa331ce5ad4978f1f16e61c3/jetified-play-services-measurement-impl-19.0.1/AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services-gass:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3bbaa326ab4f79a216d52202bf1072a0/jetified-play-services-gass-19.1.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.revenuecat.purchases:purchases-core-feature-identity:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e82c585313109b588d7580ad4654bbc9/jetified-purchases-core-feature-identity-4.3.1/AndroidManifest.xml:2:1-11:12
-MERGED from [com.revenuecat.purchases:purchases-core-feature-subscriber-attributes:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/ee3f91bfc829092545b8e3b745f8291b/jetified-purchases-core-feature-subscriber-attributes-4.3.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/70213607b0818b4f8f8dd665bbab7cec/jetified-play-services-ads-identifier-17.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-ads-lite:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/053b16274918f86469ef476502d7741b/jetified-play-services-ads-lite-19.1.0/AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/01a549565533bf1854b9374d6919dd72/jetified-play-services-measurement-sdk-api-19.0.1/AndroidManifest.xml:17:1-27:12
@@ -43,9 +47,6 @@ MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/jeffsilvah/.
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/7f810de1d48f35aaf9cad7d49b3dc285/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/40fa03cbf711c9b5abc7c7080df34e94/loader-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/a530992fa67cbeb397fb094b8a1a22dc/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.revenuecat.purchases:purchases-store-google:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3ab3fa45f60b9b4a7101a6f181a0784b/jetified-purchases-store-google-4.3.1/AndroidManifest.xml:2:1-11:12
-MERGED from [com.revenuecat.purchases:purchases-core-common:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/27efcfd0ae1edd1865e21f842336001f/jetified-purchases-core-common-4.3.1/AndroidManifest.xml:2:1-11:12
-MERGED from [com.revenuecat.purchases:purchases-core-public:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e548b930601e7ab8b8c307d0ca223fe0/jetified-purchases-core-public-4.3.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.revenuecat.purchases:purchases-core-utils:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e1777729826bf3becb2213589d1756ba/jetified-purchases-core-utils-4.3.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.core:core-ktx:1.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/9fa038ddb64d2b6d368a741ffce2c4fd/jetified-core-ktx-1.3.1/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/a935fa587df289485954d05015b0662e/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -75,7 +76,6 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/jeffsilvah/.gradle/cac
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/9dc01f80be5d003ac3d9f81c085f13fd/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.revenuecat.purchases:purchases-core-strings:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/2219e84727f471e91671def6722525ca/jetified-purchases-core-strings-4.3.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-ads-base:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/71457b65e00fabc0f27b75c70c732000/jetified-play-services-ads-base-19.1.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:2:1-24:12
 INJECTED from /home/jeffsilvah/Documents/Projects/Flutter/remind_me_of/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 INJECTED from /home/jeffsilvah/Documents/Projects/Flutter/remind_me_of/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 INJECTED from /home/jeffsilvah/Documents/Projects/Flutter/remind_me_of/android/app/src/debug/AndroidManifest.xml:1:1-7:12
@@ -129,6 +129,8 @@ MERGED from [com.google.firebase:firebase-ads:19.1.0] /home/jeffsilvah/.gradle/c
 MERGED from [com.google.firebase:firebase-ads:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/412c2b9e4450b99b613a330e9aa27ca7/jetified-firebase-ads-19.1.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/62b274eb1d5a61beb89e504ac46b32e2/jetified-firebase-analytics-19.0.1/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/62b274eb1d5a61beb89e504ac46b32e2/jetified-firebase-analytics-19.0.1/AndroidManifest.xml:7:5-20
+MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:12:5-22:19
+MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:12:5-22:19
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/d3490d9d81ebe2d7174eb29e4a32f867/jetified-play-services-measurement-api-19.0.1/AndroidManifest.xml:26:5-34:19
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/d3490d9d81ebe2d7174eb29e4a32f867/jetified-play-services-measurement-api-19.0.1/AndroidManifest.xml:26:5-34:19
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/2b663374f2a3beef67e4fc09532fc190/jetified-firebase-installations-17.0.0/AndroidManifest.xml:14:5-22:19
@@ -167,8 +169,6 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.3.0-rc01] /home/jeffsilvah/.
 MERGED from [androidx.lifecycle:lifecycle-process:2.3.0-rc01] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/cd43ae0762c0fb2966267eab5d541956/jetified-lifecycle-process-2.3.0-rc01/AndroidManifest.xml:24:5-30:19
 MERGED from [com.google.android.gms:play-services-ads-base:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/71457b65e00fabc0f27b75c70c732000/jetified-play-services-ads-base-19.1.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-ads-base:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/71457b65e00fabc0f27b75c70c732000/jetified-play-services-ads-base-19.1.0/AndroidManifest.xml:7:5-20
-MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:12:5-22:19
-MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:12:5-22:19
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/f5d3110fa213ea9ffb73eaf43b03d37d/core-1.3.1/AndroidManifest.xml:24:18-86
 	android:label
@@ -257,6 +257,18 @@ MERGED from [com.revenuecat.purchases:purchases-hybrid-common:1.9.1] /home/jeffs
 MERGED from [com.revenuecat.purchases:purchases-hybrid-common:1.9.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/946b6f9bba677f7047371a2a2812cc9c/jetified-purchases-hybrid-common-1.9.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.revenuecat.purchases:purchases:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/a5ea60478cc08957062e1cffeea4894f/jetified-purchases-4.3.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.revenuecat.purchases:purchases:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/a5ea60478cc08957062e1cffeea4894f/jetified-purchases-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-feature-identity:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e82c585313109b588d7580ad4654bbc9/jetified-purchases-core-feature-identity-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-feature-identity:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e82c585313109b588d7580ad4654bbc9/jetified-purchases-core-feature-identity-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-feature-subscriber-attributes:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/ee3f91bfc829092545b8e3b745f8291b/jetified-purchases-core-feature-subscriber-attributes-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-feature-subscriber-attributes:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/ee3f91bfc829092545b8e3b745f8291b/jetified-purchases-core-feature-subscriber-attributes-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-store-google:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3ab3fa45f60b9b4a7101a6f181a0784b/jetified-purchases-store-google-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-store-google:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3ab3fa45f60b9b4a7101a6f181a0784b/jetified-purchases-store-google-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-common:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/27efcfd0ae1edd1865e21f842336001f/jetified-purchases-core-common-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-common:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/27efcfd0ae1edd1865e21f842336001f/jetified-purchases-core-common-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-public:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e548b930601e7ab8b8c307d0ca223fe0/jetified-purchases-core-public-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.revenuecat.purchases:purchases-core-public:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e548b930601e7ab8b8c307d0ca223fe0/jetified-purchases-core-public-4.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/d3490d9d81ebe2d7174eb29e4a32f867/jetified-play-services-measurement-api-19.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/d3490d9d81ebe2d7174eb29e4a32f867/jetified-play-services-measurement-api-19.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/2b663374f2a3beef67e4fc09532fc190/jetified-firebase-installations-17.0.0/AndroidManifest.xml:6:5-8:41
@@ -275,10 +287,6 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.1] /home
 MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/cb03f219aa331ce5ad4978f1f16e61c3/jetified-play-services-measurement-impl-19.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-gass:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3bbaa326ab4f79a216d52202bf1072a0/jetified-play-services-gass-19.1.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-gass:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3bbaa326ab4f79a216d52202bf1072a0/jetified-play-services-gass-19.1.0/AndroidManifest.xml:5:5-44
-MERGED from [com.revenuecat.purchases:purchases-core-feature-identity:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e82c585313109b588d7580ad4654bbc9/jetified-purchases-core-feature-identity-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-core-feature-identity:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e82c585313109b588d7580ad4654bbc9/jetified-purchases-core-feature-identity-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-core-feature-subscriber-attributes:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/ee3f91bfc829092545b8e3b745f8291b/jetified-purchases-core-feature-subscriber-attributes-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-core-feature-subscriber-attributes:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/ee3f91bfc829092545b8e3b745f8291b/jetified-purchases-core-feature-subscriber-attributes-4.3.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/70213607b0818b4f8f8dd665bbab7cec/jetified-play-services-ads-identifier-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/70213607b0818b4f8f8dd665bbab7cec/jetified-play-services-ads-identifier-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-lite:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/053b16274918f86469ef476502d7741b/jetified-play-services-ads-lite-19.1.0/AndroidManifest.xml:20:5-44
@@ -313,12 +321,6 @@ MERGED from [androidx.loader:loader:1.0.0] /home/jeffsilvah/.gradle/caches/trans
 MERGED from [androidx.loader:loader:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/40fa03cbf711c9b5abc7c7080df34e94/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/a530992fa67cbeb397fb094b8a1a22dc/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/a530992fa67cbeb397fb094b8a1a22dc/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.revenuecat.purchases:purchases-store-google:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3ab3fa45f60b9b4a7101a6f181a0784b/jetified-purchases-store-google-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-store-google:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/3ab3fa45f60b9b4a7101a6f181a0784b/jetified-purchases-store-google-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-core-common:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/27efcfd0ae1edd1865e21f842336001f/jetified-purchases-core-common-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-core-common:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/27efcfd0ae1edd1865e21f842336001f/jetified-purchases-core-common-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-core-public:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e548b930601e7ab8b8c307d0ca223fe0/jetified-purchases-core-public-4.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.revenuecat.purchases:purchases-core-public:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e548b930601e7ab8b8c307d0ca223fe0/jetified-purchases-core-public-4.3.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.revenuecat.purchases:purchases-core-utils:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e1777729826bf3becb2213589d1756ba/jetified-purchases-core-utils-4.3.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.revenuecat.purchases:purchases-core-utils:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/e1777729826bf3becb2213589d1756ba/jetified-purchases-core-utils-4.3.1/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.core:core-ktx:1.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/9fa038ddb64d2b6d368a741ffce2c4fd/jetified-core-ktx-1.3.1/AndroidManifest.xml:5:5-7:41
@@ -377,8 +379,6 @@ MERGED from [com.revenuecat.purchases:purchases-core-strings:4.3.1] /home/jeffsi
 MERGED from [com.revenuecat.purchases:purchases-core-strings:4.3.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/2219e84727f471e91671def6722525ca/jetified-purchases-core-strings-4.3.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-ads-base:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/71457b65e00fabc0f27b75c70c732000/jetified-play-services-ads-base-19.1.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-ads-base:19.1.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/71457b65e00fabc0f27b75c70c732000/jetified-play-services-ads-base-19.1.0/AndroidManifest.xml:5:5-44
-MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:6:5-8:41
 INJECTED from /home/jeffsilvah/Documents/Projects/Flutter/remind_me_of/android/app/src/debug/AndroidManifest.xml
 INJECTED from /home/jeffsilvah/Documents/Projects/Flutter/remind_me_of/android/app/src/debug/AndroidManifest.xml
 	tools:overrideLibrary
@@ -427,6 +427,22 @@ action#com.htc.intent.action.QUICKBOOT_POWERON
 ADDED from [:flutter_local_notifications] /home/jeffsilvah/Documents/Projects/Flutter/remind_me_of/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-82
 	android:name
 		ADDED from [:flutter_local_notifications] /home/jeffsilvah/Documents/Projects/Flutter/remind_me_of/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:18:25-79
+meta-data#com.google.android.play.billingclient.version
+ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:13:9-15:37
+	android:value
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:15:13-34
+	android:name
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:14:13-73
+activity#com.android.billingclient.api.ProxyBillingActivity
+ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:17:9-21:75
+	android:exported
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:20:13-37
+	android:configChanges
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:19:13-96
+	android:theme
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:21:13-72
+	android:name
+		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:18:13-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-measurement-api:19.0.1] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/d3490d9d81ebe2d7174eb29e4a32f867/jetified-play-services-measurement-api-19.0.1/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/2b663374f2a3beef67e4fc09532fc190/jetified-firebase-installations-17.0.0/AndroidManifest.xml:10:5-79
@@ -557,19 +573,3 @@ ADDED from [androidx.lifecycle:lifecycle-process:2.3.0-rc01] /home/jeffsilvah/.g
 		ADDED from [androidx.lifecycle:lifecycle-process:2.3.0-rc01] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/cd43ae0762c0fb2966267eab5d541956/jetified-lifecycle-process-2.3.0-rc01/AndroidManifest.xml:28:13-37
 	android:name
 		ADDED from [androidx.lifecycle:lifecycle-process:2.3.0-rc01] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/cd43ae0762c0fb2966267eab5d541956/jetified-lifecycle-process-2.3.0-rc01/AndroidManifest.xml:26:13-79
-meta-data#com.google.android.play.billingclient.version
-ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:13:9-15:37
-	android:value
-		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:15:13-34
-	android:name
-		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:14:13-73
-activity#com.android.billingclient.api.ProxyBillingActivity
-ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:17:9-21:75
-	android:exported
-		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:20:13-37
-	android:configChanges
-		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:19:13-96
-	android:theme
-		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:21:13-72
-	android:name
-		ADDED from [com.android.billingclient:billing:4.0.0] /home/jeffsilvah/.gradle/caches/transforms-2/files-2.1/150c4be753f7ec9a920421d016802162/jetified-billing-4.0.0/AndroidManifest.xml:18:13-78
