@@ -36,7 +36,18 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
   void initState() {
     if(widget.reminder != null){
       if(widget.reminder!.reminderDate.isBefore(DateTime.now())){
-        widget.reminder!.reminderDate = widget.reminder!.reminderDate.add(Duration(days: 1));
+
+        DateTime now = new DateTime.now().add(Duration(days: 1));
+        DateTime date = new DateTime(
+          now.year,
+          now.month,
+          now.day,
+          widget.reminder!.reminderDate.hour,
+          widget.reminder!.reminderDate.minute
+        );
+
+        widget.reminder!.reminderDate = date;
+
       }
 
       titleController..text = widget.reminder!.title;

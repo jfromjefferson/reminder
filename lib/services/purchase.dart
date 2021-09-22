@@ -23,15 +23,24 @@ class PurchaseApi {
 
   static Future<bool> purchasePackage({required Package package}) async{
     try {
-      PurchaserInfo purchaserInfo = await Purchases.getPurchaserInfo();
-      if(purchaserInfo.entitlements.active.isEmpty){
+      PurchaserInfo restoredInfo = await Purchases.restoreTransactions();
+      print(restoredInfo.entitlements.active);
+      if(restoredInfo.entitlements.active.isEmpty){
         await Purchases.purchasePackage(package);
+
         return true;
       }
 
       return true;
     } catch (e) {
-      return false;
+      try{
+        await Purchases.purchasePackage(package);
+
+        return true;
+      }catch(e){
+        return false;
+      }
+
     }
   }
 
