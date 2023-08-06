@@ -18,4 +18,4 @@
 - flutter_local_notifications - Notificações
 - admob_flutter - Anúncios 
 - purchases_flutter - In-App Purchase
-- Dê uma conferida no <a href="https://play.google.com/store/apps/details?id=com.oitobits.remind_me_of">google play</a>
+
